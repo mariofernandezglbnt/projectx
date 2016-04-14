@@ -1,0 +1,11 @@
+#################
+##SAP GLobant QA
+#################
+jco.client.ashost=172.28.24.21
+jco.client.client=500
+jco.client.user=rfcadm
+jco.client.passwd=glow.admin
+jco.client.sysnr=00
+jco.destination.pool_capacity=10
+jco.destination.peak_limit=50
+jco.client.lang=en
