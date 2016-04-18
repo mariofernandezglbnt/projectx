@@ -5,10 +5,6 @@
 	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<properties>
-		<webSource>${basedir}/resources</webSource>
-	</properties>
-
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>

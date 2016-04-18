@@ -6,8 +6,8 @@ import java.util.Properties;
 
 public class PropertyHolder {
 
-	private Properties prop ;
-	
+	private Properties prop;
+
 	public PropertyHolder() {
 		loadProperties();
 	}
@@ -19,41 +19,25 @@ public class PropertyHolder {
 	public void setProp(Properties prop) {
 		this.prop = prop;
 	}
-	
-	
+
 	private void loadProperties() {
-		
 		prop = new Properties();
 		InputStream input = null;
 
 		try {
-
-		      input = getClass().getClassLoader().getResourceAsStream("config.properties");
-
-
-		    // load a properties file
-		    prop.load(input);
-
-		    
-		    
-		    
+			input = getClass().getClassLoader().getResourceAsStream("config.properties");
+			prop.load(input);
 
 		} catch (IOException ex) {
-		    ex.printStackTrace();
+			ex.printStackTrace();
 		} finally {
-		    if (input != null) {
-		        try {
-		            input.close();
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		        }
-		    }
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-		
-		
-
-
 	}
-	
-	
 }

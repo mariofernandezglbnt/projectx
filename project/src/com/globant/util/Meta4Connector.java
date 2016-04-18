@@ -5,8 +5,7 @@ import java.util.List;
 public class Meta4Connector implements Connector {
 
 	@Override
-	public List<String[]> getData(String pathConfig) {
-		// TODO Auto-generated method stub
+	public List<String[]> getData() {
 		return null;
 	}
 

@@ -8,27 +8,18 @@ import com.opencsv.CSVWriter;
 
 public class CSVWriterHelper {
 
-	
 	public CSVWriterHelper() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	public void writecsv(List<String []>entries) {
-		
+	public void writeCSV(List<String []>entries) {
 		try {
 			CSVWriter csvw = new CSVWriter(new FileWriter("output.csv"));
 			for (String[] entry : entries) {
 				csvw.writeNext(entry);
 			}
 			csvw.close();
-			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-	
-	
-	
 }

@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface Connector {
 
-	List<String[]> getData(String pathConfig);
+	List<String[]> getData();
 }
