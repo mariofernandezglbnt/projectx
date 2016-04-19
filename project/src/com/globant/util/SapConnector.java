@@ -46,7 +46,7 @@ public class SapConnector implements Connector {
 			}
 
 		} catch (JCoException e) {
-			LOGGER.error(e.toString());
+			LOGGER.error("Problems in SAP getData()", e);
 		}
 
 		return entries;
@@ -61,7 +61,7 @@ public class SapConnector implements Connector {
 			destination = JCoDestinationManager.getDestination(pathConfig);
 			//testConnect(destination);
 		} catch (JCoException e) {
-			LOGGER.error("##SAP## Problems load destination SAP", e.fillInStackTrace());
+			LOGGER.error("Problems load destination SAP", e);
 		}
 
 		return destination;
@@ -76,9 +76,6 @@ public class SapConnector implements Connector {
 			}
 		} catch (JCoException e) {
 			LOGGER.error("Error getting SAPFunction", e);
-			if (e.getCause() != null) {
-				LOGGER.error(e.getCause().getMessage());
-			}
 		}
 
 		return function;
@@ -100,7 +97,7 @@ public class SapConnector implements Connector {
 				LOGGER.info(field.getName() + ":\t" + field.getString());
 			}
 		} catch(AbapException e) {
-			LOGGER.error(e.toString());
+			LOGGER.error("There are problems when we tested the connection", e);
 		}
 	}
 }

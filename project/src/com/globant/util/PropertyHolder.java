@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertyHolder {
+import org.apache.log4j.Logger;
 
+public class PropertyHolder {
+	private static final Logger LOGGER = Logger.getLogger(PropertyHolder.class);
 	private Properties prop;
 
 	public PropertyHolder() {
@@ -26,16 +28,19 @@ public class PropertyHolder {
 
 		try {
 			input = getClass().getClassLoader().getResourceAsStream("config.properties");
+			if (input == null) {
+				LOGGER.error("Problems load config properties, the file is not found.");
+			}
 			prop.load(input);
 
-		} catch (IOException ex) {
-			ex.printStackTrace();
+		} catch (IOException e) {
+			LOGGER.error("Problems in load Properties.", e);
 		} finally {
 			if (input != null) {
 				try {
 					input.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					LOGGER.error("Problems when load the file Properties.", e);
 				}
 			}
 		}
